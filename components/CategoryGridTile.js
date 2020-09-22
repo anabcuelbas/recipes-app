@@ -24,16 +24,17 @@ const styles = StyleSheet.create({
         margin: 15,
         height: 150,
         borderRadius: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        elevation: 5,
+        shadowColor: 'black',
+        shadowOpacity: 0.26,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 10
+
     },
     container: {
         flex: 1,
         borderRadius: 10,
-        shadowColor: 'black',
-        shadowOpacity: 0.26,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
-        elevation: 3,
         padding: 15,
         justifyContent: 'flex-end',
         alignItems: 'flex-end'
