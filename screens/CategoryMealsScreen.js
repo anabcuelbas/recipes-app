@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 10
+        backgroundColor: 'white'
     }
 })
 
