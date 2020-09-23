@@ -12,34 +12,45 @@ import MealDetailScreen from '../screens/MealDetailScreen'
 import FavoritesScreen from '../screens/FavoritesScreen'
 import Colors from '../constants/Colors'
 
+const defaultStackNavOptions = {
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+}
+
 const MealsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
     CategoryMeals: {
         screen: CategoryMealsScreen
     },
     MealDetail: MealDetailScreen
-}, {
-    defaultNavigationOptions: {
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-        },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-    }
-})
+}, {defaultNavigationOptions: defaultStackNavOptions})
+
+const FavNavigator = createStackNavigator({
+    Favorites: FavoritesScreen,
+    MealDetail: MealDetailScreen
+}, {defaultNavigationOptions: defaultStackNavOptions})
 
 const tabScreenConfig = {
-    Meals: {screen: MealsNavigator, navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-            return <Ionicons name="ios-restaurant" size={25} color={tabInfo.tintColor} />
-        },
-        tabBarColor: Colors.primaryColor
-    }},
-    Favorites: {screen: FavoritesScreen, navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-            return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />
-        },
-        tabBarColor: Colors.accentColor
-    }}
+    Meals: {
+        screen: MealsNavigator,
+        navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name="ios-restaurant" size={25} color={tabInfo.tintColor} />
+            },
+            tabBarColor: Colors.primaryColor
+        }
+    },
+    Favorites: {
+        screen: FavNavigator,
+        navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />
+            },
+            tabBarColor: Colors.accentColor
+        }
+    }
 }
 
 const MealsFavTabNavigator = 
