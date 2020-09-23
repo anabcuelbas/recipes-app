@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
 import { enableScreens } from 'react-native-screens'
 
 import * as Font from 'expo-font'
